@@ -206,3 +206,4 @@ for_window [class="Spotify"] move container to workspace $ws3
 #Restore the wallpaper
 exec --no-startup-id nitrogen --restore
 
+exec compton
