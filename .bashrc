@@ -67,7 +67,8 @@ function parse_git_branch() {
 }
 
 # export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\e[37;42m\]\`parse_git_branch\`\[\e[m\] \$ "
-export PS1="\[$(tput bold)\]\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h:\[$(tput setaf 6)\]\W\[$(tput setaf 5)\]\`parse_git_branch\`\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+# export PS1="\[$(tput bold)\]\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h:\[$(tput setaf 6)\]\W\[$(tput setaf 5)\]\`parse_git_branch\`\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1='\[\e[0;1m\]\u\[\e[0;1m\]@\[\e[0;1m\]\h\[\e[0;1m\] in: \[\e[0;1;96m\]\W\[\e[0;1m\]$ \[\e[0m\]'
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 #Custom alias
