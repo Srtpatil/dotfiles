@@ -1,0 +1,21 @@
+set $wallpaper /root/.local/share/bg.jpg
+
+set $background #0f1913
+set $foreground #d7dcd5
+
+set $color0 #0f1913
+set $color1 #4B8871
+set $color2 #A59948
+set $color3 #2F7787
+set $color4 #269897
+set $color5 #5E9B9C
+set $color6 #67BDD0
+set $color7 #d7dcd5
+set $color8 #969a95
+set $color9 #4B8871
+set $color10 #A59948
+set $color11 #2F7787
+set $color12 #269897
+set $color13 #5E9B9C
+set $color14 #67BDD0
+set $color15 #d7dcd5

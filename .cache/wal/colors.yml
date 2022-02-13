@@ -1,0 +1,24 @@
+wallpaper: "/root/.local/share/bg.jpg"
+
+special:
+    background: "#0f1913"
+    foreground: "#d7dcd5"
+    cursor: "#d7dcd5"
+
+colors:
+    color0: "#0f1913"
+    color1: "#4B8871"
+    color2: "#A59948"
+    color3: "#2F7787"
+    color4: "#269897"
+    color5: "#5E9B9C"
+    color6: "#67BDD0"
+    color7: "#d7dcd5"
+    color8: "#969a95"
+    color9: "#4B8871"
+    color10: "#A59948"
+    color11: "#2F7787"
+    color12: "#269897"
+    color13: "#5E9B9C"
+    color14: "#67BDD0"
+    color15: "#d7dcd5"

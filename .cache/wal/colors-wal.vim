@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/root/.local/share/bg.jpg"
+let background = "#0f1913"
+let foreground = "#d7dcd5"
+let cursor     = "#d7dcd5"
+
+" Colors
+let color0  = "#0f1913"
+let color1  = "#4B8871"
+let color2  = "#A59948"
+let color3  = "#2F7787"
+let color4  = "#269897"
+let color5  = "#5E9B9C"
+let color6  = "#67BDD0"
+let color7  = "#d7dcd5"
+let color8  = "#969a95"
+let color9  = "#4B8871"
+let color10 = "#A59948"
+let color11 = "#2F7787"
+let color12 = "#269897"
+let color13 = "#5E9B9C"
+let color14 = "#67BDD0"
+let color15 = "#d7dcd5"
