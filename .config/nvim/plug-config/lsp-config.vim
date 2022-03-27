@@ -10,6 +10,11 @@ nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 
 " auto-format
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.cpp lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.cc lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.h lua vim.lsp.buf.formatting_sync(nil, 500)
+autocmd BufWritePre *.hpp lua vim.lsp.buf.formatting_sync(nil, 500)

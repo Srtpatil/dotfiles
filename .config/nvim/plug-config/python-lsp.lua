@@ -1,1 +1,2 @@
-require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pyright.setup{}
+require'lspconfig'.pylsp.setup{}

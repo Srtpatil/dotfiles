@@ -11,7 +11,26 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <leader><Left> <C-w>h
+nnoremap <leader><Down> <C-w>j
+nnoremap <leader><Up> <C-w>k
+nnoremap <leader><Right> <C-w>l
+
+" Consistency
+nnoremap Y y$
+
+nnoremap <leader>j :cnext<CR>zz
+nnoremap <leader>k :cprev<CR>zz
+nnoremap <leader>q :call ToggleQFList()<CR>
+
+let g:open_q = 0
+
+fun! ToggleQFList()
+    if g:open_q == 1
+        let g:open_q = 0
+        cclose
+    else
+        let g:open_q = 1
+        copen
+    end
+endfun
