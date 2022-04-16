@@ -1,0 +1,285 @@
+* Looks 
+
+** Theme
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+      :if window-system
+      :ensure t
+      :config
+      (load-theme 'doom-molokai t)
+      (doom-themes-org-config)
+      (doom-themes-visual-bell-config)
+      (menu-bar-mode -1)
+      (tool-bar-mode -1)
+      (fringe-mode -1)
+      (scroll-bar-mode -1))
+#+END_SRC
+
+** Font
+#+BEGIN_SRC emacs-lisp
+    (add-to-list 'default-frame-alist
+		'(font . "JetBrains Mono-12"))
+#+END_SRC
+
+** Disable menu bars and scrollbar
+#+BEGIN_SRC emacs-lisp
+    (tool-bar-mode -1)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1)
+#+END_SRC
+
+** Disable bell
+#+BEGIN_SRC emacs-lisp
+    (setq ring-bell-function 'ignore)
+#+END_SRC
+
+** Set UTF-8 encoding
+#+BEGIN_SRC emacs-lisp
+    (setq locale-coding-system 'utf-8)
+    (set-terminal-coding-system 'utf-8)
+    (set-keyboard-coding-system 'utf-8)
+    (set-selection-coding-system 'utf-8)
+    (prefer-coding-system 'utf-8)
+#+END_SRC
+
+** Mouse Color
+#+BEGIN_SRC emacs-lisp
+  (set-mouse-color "white")
+  (global-hl-line-mode t)
+#+END_SRC
+
+** Dashboard
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+    :ensure t
+    :config
+      (dashboard-setup-startup-hook)
+      (setq dashboard-startup-banner "~/.emacs.d/img/glasses.png")
+      (setq dashboard-items '((recents  . 5)
+				(projects . 5)))
+      (setq dashboard-banner-logo-title "Hullo..."))
+  (setq dashboard-center-content t)
+#+END_SRC
+
+
+* Functionality
+
+** Disable backups and auto-saves
+#+BEGIN_SRC emacs-lisp
+    (setq make-backup-files nil)
+    (setq auto-save-default nil)
+#+END_SRC
+
+** Changes yes/no to y/n
+#+BEGIN_SRC emacs-lisp
+    (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** Async
+#+BEGIN_SRC emacs-lisp
+    (use-package async
+    :ensure t
+    :init (dired-async-mode 1))
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+ (display-line-numbers-mode)
+ (global-display-line-numbers-mode)
+ (setq display-line-numbers 'relative)
+ (setq display-line-numbers-type 'relative)
+#+END_SRC
+
+** buffers
+#+BEGIN_SRC emacs-lisp
+(defun kill-curr-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'kill-curr-buffer)
+#+END_SRC
+
+** Reload Configuration
+#+BEGIN_SRC emacs-lisp
+  (defun config-reload ()
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+  (global-set-key (kbd "C-c r") 'config-reload)
+#+END_SRC
+
+
+* Spaceline
+#+BEGIN_SRC emacs-lisp
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+  (spaceline-spacemacs-theme))
+#+END_SRC
+
+
+* Diminish Modes
+#+BEGIN_SRC emacs-lisp
+(use-package diminish
+  :ensure t
+  :init
+  (diminish 'which-key-mode)
+  (diminish 'linum-relative-mode)
+  (diminish 'hungry-delete-mode)
+  (diminish 'visual-line-mode)
+  (diminish 'subword-mode)
+  (diminish 'beacon-mode)
+  (diminish 'irony-mode)
+  (diminish 'page-break-lines-mode)
+  (diminish 'auto-revert-mode)
+  (diminish 'rainbow-delimiters-mode)
+  (diminish 'rainbow-mode)
+  (diminish 'yas-minor-mode)
+  (diminish 'flycheck-mode)
+  (diminish 'helm-mode))
+#+END_SRC
+
+
+* Evil Mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t)
+  (evil-mode 1)
+#+END_SRC
+** Key bindings
+#+BEGIN_SRC emacs-lisp
+  (defvar my-leader-map (make-sparse-keymap)
+    "Keymap for \"leader key\" shortcuts.")
+
+  ;; binding "SPC" to the keymap
+  (define-key evil-normal-state-map (kbd "SPC") my-leader-map)
+
+  ;; binding "<leader>b"
+  (define-key my-leader-map "b" 'switch-to-buffer)
+
+  ;; binding "<leader>p"
+  (define-key my-leader-map "p" 'find-file) ;; Finding files with Helm
+#+END_SRC
+
+
+* Which Key
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :init
+    (which-key-mode))
+#+END_SRC
+
+
+* Org Mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :ensure t)
+#+END_SRC
+
+** Common Settings
+#+BEGIN_SRC emacs-lisp
+(setq org-ellipsis " ")
+(setq org-src-fontify-natively t)
+(setq org-src-tab-acts-natively t)
+(setq org-confirm-babel-evaluate nil)
+(setq org-export-with-smart-quotes t)
+(setq org-src-window-setup 'current-window)
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+END_SRC
+
+** Org bullets
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+END_SRC
+
+
+* IDO
+
+** Enable IDO Mode
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+#+END_SRC
+
+** IDO vertical mode
+#+BEGIN_SRC emacs-lisp
+  (use-package ido-vertical-mode
+    :ensure t
+    :init
+    (ido-vertical-mode 1))
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+#+END_SRC
+** smex
+#+BEGIN_SRC emacs-lisp
+  (use-package smex
+      :ensure t
+      :init (smex-initialize)
+      :bind
+      ("M-x" . smex))
+#+END_SRC
+
+
+* Undo tree
+#+BEGIN_SRC emacs-lisp
+(use-package undo-tree
+  :ensure t
+  :config
+  (evil-set-undo-system 'undo-tree)
+  (global-undo-tree-mode))
+#+END_SRC
+
+
+* Swiper
+#+BEGIN_SRC emacs-lisp
+(use-package swiper
+  :ensure t
+  :bind ("C-s" . swiper))
+#+END_SRC
+
+
+* Auto Completion
+** Company Mode
+#+BEGIN_SRC emacs-lisp
+    (use-package company
+      :ensure t
+      :hook ((emacs-lisp-mode . (lambda ()
+                                 (setq-local company-backends '(company-elisp))))
+      (emacs-lisp-mode . company-mode))
+      :config
+      (company-tng-configure-default)
+      (setq company-idle-delay 0)
+      (setq company-minimum-prefix-length 1)
+      (global-company-mode 1))
+
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+#+END_SRC
+** C/C++ Autocomplete stuff
+#+BEGIN_SRC emacs-lisp
+  (use-package company-irony
+    :ensure t
+    :config
+    (require 'company)
+    (add-to-list 'company-backends 'company-irony))
+
+  (use-package irony
+    :ensure t
+    :config
+    (add-hook 'c++-mode-hook 'irony-mode)
+    (add-hook 'c-mode-hook 'irony-mode)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+(with-eval-after-load 'company
+    (add-hook 'c++-mode-hook 'company-mode)
+    (add-hook 'c-mode-hook 'company-mode))
+#+END_SRC
