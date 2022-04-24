@@ -14,6 +14,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -27,19 +28,22 @@ nnoremap <leader>u :UndotreeShow<CR>
 " Language Servers
 luafile ~/.config/nvim/plug-config/python-lsp.lua
 luafile ~/.config/nvim/plug-config/ccls-lsp.lua
+luafile ~/.config/nvim/plug-config/web-dev-lsp.lua
 " luafile ~/.config/nvim/plug-config/go-lsp.lua
+
+" Treesitter
+luafile ~/.config/nvim/plug-config/treesitter.lua
 
 " Configs
 source ~/.config/nvim/plug-config/lsp-config.vim
 luafile ~/.config/nvim/plug-config/compe-config.lua
 
-set colorcolumn=80
+set colorcolumn=120
 
 " air-line
 let g:airline_powerline_fonts = 1
 
-" colorscheme wal
-colorscheme gruvbox
+colorscheme onedark
 highlight Normal guibg=none
 " highlight ColorColumn ctermbg=0 guibg=lightgrey
 
