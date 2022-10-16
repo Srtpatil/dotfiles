@@ -196,6 +196,16 @@ bindsym $mod+Ctrl+h resize grow width 5 px or 5 ppt
 # Lock screen
 bindsym $mod+Shift+d exec --no-startup-id betterlockscreen -l dimblur
 
+# Screenshot
+bindsym $mod+PrtScrn exec --no-startup-id screenshot window
+bindsym $mod+Shift+s exec --no-startup-id screenshot select
+
+# Brightness control
+# increase brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+ # decrease screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+
 # exec dunst
 exec --no-startup-id dunst
 
@@ -204,6 +214,9 @@ exec --no-startup-id nitrogen --restore
 
 # exec picom
 exec --no-startup-id picom
+
+# exec mpd
+exec --no-startup-id mpd
 
 # Remove Annoying beep sound
 exec --no-startup-id xset b 0

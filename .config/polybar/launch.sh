@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
-killall polybar
+THEME="lofi"
 
-# Wait until the processes have been shut down
+killall polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
+CONFIG_DIR=$(dirname $0)/themes/$THEME/config.ini
+
 # Launch polybar
-polybar main -c $(dirname $0)/config.ini &
+polybar main -c $CONFIG_DIR &
 
 if [[ $(xrandr -q | grep 'HDMI-1 connected') ]]; then
-	polybar external -c $(dirname $0)/config.ini &
+	polybar external -c $CONFIG_DIR &
 fi
