@@ -8,12 +8,8 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-require("luasnip/loaders/from_vscode").lazy_load({paths  = {"./custom_snippets"}})
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -129,3 +125,5 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+require("luasnip.loaders.from_vscode").lazy_load({paths  = {"./custom_snippets"}})

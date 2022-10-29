@@ -46,6 +46,10 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'AlphaTechnolog/pywal.nvim'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
 
@@ -54,6 +58,8 @@ luafile ~/.config/nvim/cmp.lua
 luafile ~/.config/nvim/lsp.lua
 luafile ~/.config/nvim/telescope.lua
 luafile ~/.config/nvim/lualine.lua
+luafile ~/.config/nvim/toggleterm.lua
+luafile ~/.config/nvim/autopairs.lua
 
 
 " Mappings
@@ -80,9 +86,8 @@ nnoremap <leader>s :Telescope live_grep<CR>
 " End Mappings
 
 set background=dark
-colorscheme tokyodark
-let g:lightline = {'colorscheme' : 'tokyonight'}
-
+" colorscheme tokyodark
+colorscheme pywal
 
 augroup highlight_yank
     autocmd!

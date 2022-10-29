@@ -148,6 +148,25 @@ bindsym $mod+Shift+bracketright move workspace to output right
 for_window [class="^.*"] border pixel 2
 gaps inner 5
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+### COLORS
+set_from_resource $background  i3wm.background #f0f0f0
+set_from_resource $foreground  i3wm.foreground #f0f0f0
+set_from_resource $primary     i3wm.color2 #f0f0f0
+set_from_resource $secondary   i3wm.color1 #f0f0f0
+
+client.focused     $background  $secondary $foreground $background
+# client.focused_inactive $background     $background     $foreground  $background       $background
+# client.unfocused        $background     $background     $foreground  $background       $background
+# client.urgent           $background     $background     $foreground  $background       $background
+# client.placeholder      $background     $background     $foreground  $background       $background
+
+client.background   $background
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
