@@ -86,8 +86,8 @@ nnoremap <leader>s :Telescope live_grep<CR>
 " End Mappings
 
 set background=dark
-" colorscheme tokyodark
-colorscheme pywal
+colorscheme tokyodark
+" colorscheme pywal
 
 augroup highlight_yank
     autocmd!
