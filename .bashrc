@@ -121,6 +121,7 @@ ex ()
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias code="codium"
 
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -133,4 +134,3 @@ export EDITOR=nvim
 # ( ) # Hide shell job control messages.
 # Not supported in the "fish" shell.
 (cat ~/.cache/wal/sequences &)
-
